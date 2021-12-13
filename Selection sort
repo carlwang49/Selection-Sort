@@ -1,0 +1,54 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const int size = 10;
+
+void swap(int *a,int *b){
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = *a;
+}
+
+void Selection_sort(int *A){
+    for(int i=0;i<size;i++){
+        int j = i;
+        int k = i+1;
+        while(k<size){
+            if (A[j]>A[k]){
+                j=k;
+                k++;
+            }
+            else
+                k++;
+        }
+        if (i != j)
+        {
+        swap(A[i],A[j]);
+        cout<<"result  "<<endl;
+        for(int i=0;i<size;i++){
+            cout<<setw(4)<<A[i];
+        }
+        cout<<"\n";
+        }
+    }
+    
+    cout<<"final  "<<endl;
+    for(int i=0;i<size;i++){
+        cout<<setw(4)<<A[i];
+    }
+    
+}
+
+int main() {
+    int a[size]={34,90,4,10,100,51,7,30,5,600};
+    cout<<"original"<<endl;
+    for(int i=0;i<size;i++){
+        cout<<setw(4)<<a[i];
+    }
+    cout<<"\n";
+    Selection_sort(a);
+    
+    
+    return 0;
+}
